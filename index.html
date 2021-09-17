@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<body>
+<body onload="getUserAgentFromDevice();">
 <center>
 <p>Click the button to get mobile agent.</p>
 
@@ -9,23 +9,19 @@
 <p id="demo"></p>
 </center>
 <script>
-var x = document.getElementById("demo");
+    var x = document.getElementById("demo");
 
-function getUserAgentFromDevice() {
-  /*if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }*/
-  getMobileAgent();
-}
+    function getUserAgentFromDevice() {
+      console.log("getUserAgentFromDevice get called");
+      getMobileAgent();
+    }
+    
+    function callbackMobileAgent(mobileAgent) {
+        console.log("callbackMobileAgent get called");
+        console.log(mobileAgent);
+        x.innerHTML = mobileAgent;
+    }
 
-</script>
-
-<script type='text/javascript'>
-            function getMobileAgent() {
-                Mobile.abGetMobileAgent( 'provide mobile agent info' )
-            }
 </script>
 </body>
 </html>
