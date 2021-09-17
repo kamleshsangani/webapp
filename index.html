@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<body onload="getUserAgentFromDevice();">
+<body onload="onPageLoaded()">
 <center>
 <p>Click the button to get mobile agent.</p>
 
@@ -20,6 +20,10 @@
         console.log("callbackMobileAgent get called");
         console.log(mobileAgent);
         x.innerHTML = mobileAgent;
+    }
+    
+    function onPageLoaded() {
+      setTimeout(function() { getUserAgentFromDevice(); }, 500);
     }
 
 </script>
