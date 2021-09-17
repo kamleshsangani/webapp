@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+<center>
+<p>Click the button to get mobile agent.</p>
+
+<button onclick="getUserAgentFromDevice()">Get Mobile Agent</button>
+
+<p id="demo"></p>
+</center>
+<script>
+var x = document.getElementById("demo");
+
+function getUserAgentFromDevice() {
+  /*if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }*/
+  getMobileAgent();
+}
+
+</script>
+
+</body>
+</html>
