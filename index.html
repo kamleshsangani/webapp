@@ -5,25 +5,55 @@
 <p>Click the button to get mobile agent.</p>
 
 <button onclick="getUserAgentFromDevice()">Get Mobile Agent</button>
+<p id="mobileAgent"></p>
+</br></br>
+<button onclick="getAuthCodeFromDevice()">Get Auth Code</button>
+<p id="authCode"></p>
+</br></br>
+<button onclick="getProcessPaymentFromDevice()">Process Payment</button>
+<p id="processPayment"></p>
 
-<p id="demo"></p>
 </center>
 <script>
-    var x = document.getElementById("demo");
+    var x1 = document.getElementById("mobileAgent");
+    var x2 = document.getElementById("authCode");
+    var x3 = document.getElementById("processPayment");
 
-    function getUserAgentFromDevice() {
-      console.log("getUserAgentFromDevice get called");
-      getMobileAgent();
-    }
-    
-    function callbackMobileAgent(mobileAgent) {
-        console.log("callbackMobileAgent get called");
-        console.log(mobileAgent);
-        x.innerHTML = mobileAgent;
-    }
-    
     function onPageLoaded() {
       setTimeout(function() { getUserAgentFromDevice(); }, 500);
+    }
+    
+    function getUserAgentFromDevice() {
+      console.log("getUserAgentFromDevice get called");
+      abNeoGetMobileAgent("{\"metadata\":{\"version\":1.0}}");
+    }
+    
+    function abNeoGetMobileAgentCB(mobileAgent) {
+        console.log("abNeoGetMobileAgentCB get called");
+        console.log(mobileAgent);
+        x1.innerHTML = mobileAgent;
+    }
+    
+    function getAuthCodeFromDevice() {
+      console.log("getAuthCodeFromDevice get called");
+      abNeoFetchAuthCode("{\"authcodemetadata\":{\"version\":1.0}}");
+    }
+    
+    function abNeoFetchAuthCodeCB(authCode) {
+        console.log("abNeoFetchAuthCodeCB get called");
+        console.log(authCode);
+        x2.innerHTML = authCode;
+    }
+    
+    function getProcessPaymentFromDevice() {
+      console.log("getProcessPaymentFromDevice get called");
+      abNeoProcessPayment("{\"paymentmetadata\":{\"version\":1.0}}");
+    }
+    
+    function abNeoProcessPaymentCB(processPayment) {
+        console.log("abNeoProcessPaymentCB get called");
+        console.log(processPayment);
+        x3.innerHTML = processPayment;
     }
 
 </script>
