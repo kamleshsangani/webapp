@@ -36,7 +36,7 @@
     
     function getAuthCodeFromDevice() {
       console.log("getAuthCodeFromDevice get called");
-      abNeoFetchAuthCode("{\"authcodemetadata\":{\"version\":1.0}}");
+      abNeoFetchAuthCode("{\"request\":{\"miniAppId\":\"EDw14JTzZ7pfqfzSGH1ge1SafRZvLjio\",\"codeChallenge\":\"20210111\",\"isFirstParty\":false},\"metadata\":{\"version\":1.0}}");
     }
     
     function abNeoFetchAuthCodeCB(authCode) {
